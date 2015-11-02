@@ -2,7 +2,6 @@
   "name": "bastiendonjon/laravel-domain-localization",
   "description": "Laravel 5 domain localization",
   "keywords": ["domain", "localization", "bastiendonjon", "provider"],
-  "version" : "1.0.0",
   "authors": [
     {
       "name": "Bastien Donjon",
@@ -16,5 +15,6 @@
     "psr-4": {
       "BastienDonjon\\DomainLocalization\\": "src/"
     }
-  }
+  },
+  "minimum-stability": "stable"
 }

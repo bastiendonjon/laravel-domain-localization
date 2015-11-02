@@ -2,18 +2,21 @@
 
 namespace BastienDonjon\DomainLocalization\Provider;
 
+use Illuminate\Contracts\Http\Kernel;
 use Illuminate\Support\ServiceProvider;
 
+/**
+ * Class DomainLocalizationServiceProvider
+ * @package BastienDonjon\DomainLocalization\Provider
+ */
 class DomainLocalizationServiceProvider extends ServiceProvider
 {
     /**
-     * Bootstrap the application services.
-     *
-     * @return void
+     * @param Kernel $kernel
      */
-    public function boot()
+    public function boot(Kernel $kernel)
     {
-        //
+        $kernel->pushMiddleware('BastienDonjon\DomainLocalization\Middleware\DomainLocalizationMiddleware');
     }
 
     /**
@@ -23,6 +26,8 @@ class DomainLocalizationServiceProvider extends ServiceProvider
      */
     public function register()
     {
-        $this->app['router']->middleware('middlewareName', 'BastienDonjon\DomainLocalization\Middleware\DomainLocalizationMiddleware');
+        $this->publishes([
+            __DIR__ . '/../Config/config.php' => config_path('domain-localization.php'),
+        ], 'config');
     }
 }

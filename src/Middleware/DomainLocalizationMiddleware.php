@@ -2,13 +2,15 @@
 
 namespace BastienDonjon\DomainLocalization\Middleware;
 
+use BastienDonjon\DomainLocalization\DomainLocalization;
 use Closure;
-use Illuminate\Support\Facades\App;
 
+/**
+ * Class DomainLocalizationMiddleware
+ * @package BastienDonjon\DomainLocalization\Middleware
+ */
 class DomainLocalizationMiddleware
 {
-    private $request;
-
     /**
      * Handle an incoming request.
      *
@@ -18,28 +20,8 @@ class DomainLocalizationMiddleware
      */
     public function handle($request, Closure $next)
     {
-        $this->request = $request;
-        $tld = $this->getTld();
-
-        $allowLocalByTld = [
-            '.fr' => 'fr',
-            '.com' => 'en'
-        ];
-
-        if (array_key_exists($tld, $allowLocalByTld)) {
-            App::setLocale($allowLocalByTld[$tld]);
-        }
+        new DomainLocalization($request, config('domainlocalization'));
 
         return $next($request);
-    }
-
-    /**
-     * Get top level domain.
-     *
-     * @return string
-     */
-    private function getTld()
-    {
-        return substr(strrchr($this->request->getHttpHost(), '.'), 0);
     }
 }
