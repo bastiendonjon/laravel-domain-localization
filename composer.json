@@ -16,6 +16,5 @@
     "psr-4": {
       "BastienDonjon\\LaravelDomainLocalization\\": "src/"
     }
-  },
-  "minimum-stability": "stable"
+  }
 }
