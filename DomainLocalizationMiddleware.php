@@ -1,13 +1,13 @@
 <?php
 
-namespace BastienDonjon\DomainLocalization\Middleware;
+namespace BastienDonjon\DomainLocalization;
 
 use BastienDonjon\DomainLocalization\DomainLocalization;
 use Closure;
 
 /**
  * Class DomainLocalizationMiddleware
- * @package BastienDonjon\DomainLocalization\Middleware
+ * @package BastienDonjon\DomainLocalization
  */
 class DomainLocalizationMiddleware
 {
@@ -20,7 +20,7 @@ class DomainLocalizationMiddleware
      */
     public function handle($request, Closure $next)
     {
-        new DomainLocalization($request, config('domainlocalization'));
+        new DomainLocalization($request, config('domain-localization'));
 
         return $next($request);
     }
