@@ -1,4 +1,4 @@
-# Laravel domain localization
+# Laravel 5 domain localization
 A tool for easy domain based localization in Laravel 5 applications.
 
 ## Installation
