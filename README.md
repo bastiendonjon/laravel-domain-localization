@@ -28,7 +28,7 @@ Open `app/config/app.php` and register the required service provider.
 
 ```php
 'providers' => [
-    'BastienDonjon\LaravelDomainLocalization\Provider\DomainLocalizationServiceProvider',
+    BastienDonjon\LaravelDomainLocalization\Provider\DomainLocalizationServiceProvider:class,
 ]
 ```
 
