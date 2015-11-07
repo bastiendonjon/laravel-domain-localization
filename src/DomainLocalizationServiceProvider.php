@@ -19,7 +19,7 @@ class DomainLocalizationServiceProvider extends ServiceProvider
         $kernel->pushMiddleware('BastienDonjon\DomainLocalization\DomainLocalizationMiddleware');
 
         $this->publishes([
-            __DIR__ . '/config.php' => config_path('domain-localization.php'),
+            __DIR__ . '/Config.php' => config_path('domain-localization.php'),
         ]);
     }
 
